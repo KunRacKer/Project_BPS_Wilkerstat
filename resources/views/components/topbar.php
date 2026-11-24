@@ -30,6 +30,12 @@ $dashboardUrl = ($user['role'] ?? '') === 'super_admin' ? 'admin/dashboard' : 'a
             <i class="bi bi-people me-1"></i> Pengguna
         </a>
     </li>
+    <!-- Di dalam <ul class="navbar-nav me-auto mb-2 mb-lg-0">, tambahkan setelah menu Pengguna -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= e(base_url('admin/regions')) ?>">
+            <i class="bi bi-map me-1"></i> Wilayah
+        </a>
+    </li>
     <?php endif; ?>
 </ul>
 

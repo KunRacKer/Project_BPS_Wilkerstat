@@ -157,3 +157,22 @@ html, body { transition: background-color .2s ease, color .2s ease; }
     overflow-y: visible !important;
     min-height: 250px; /* Memberi ruang agar dropdown tidak keluar layar */
 }
+
+/* Breadcrumb Custom */
+.breadcrumb {
+    margin-bottom: 0;
+    background-color: var(--bs-tertiary-bg);
+}
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "›";
+    font-size: 1.2rem;
+    line-height: 1;
+    vertical-align: middle;
+}
+.breadcrumb-item a {
+    text-decoration: none;
+    color: var(--simap-primary);
+}
+.breadcrumb-item.active a {
+    color: var(--bs-body-color);
+}

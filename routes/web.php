@@ -8,6 +8,7 @@ use App\Middleware\AuthMiddleware;
 use App\Middleware\CsrfMiddleware;
 use App\Middleware\KetuaTimOnlyMiddleware;
 use App\Controllers\UserController;
+use App\Controllers\RegionController;
 
 /** @var \App\Support\Router $router */
 
@@ -47,3 +48,7 @@ $router->get('/admin/users/{id}/edit', [UserController::class, 'edit'], [AuthMid
 $router->post('/admin/users/{id}/edit', [UserController::class, 'update'], [AuthMiddleware::class, AdminOnlyMiddleware::class, CsrfMiddleware::class]);
 $router->post('/admin/users/{id}/toggle', [UserController::class, 'toggleStatus'], [AuthMiddleware::class, AdminOnlyMiddleware::class, CsrfMiddleware::class]);
 $router->post('/admin/users/{id}/reset-password', [UserController::class, 'resetPassword'], [AuthMiddleware::class, AdminOnlyMiddleware::class, CsrfMiddleware::class]);
+
+$router->get('/admin/regions', [RegionController::class, 'index'], [AuthMiddleware::class, AdminOnlyMiddleware::class]);
+$router->post('/admin/regions', [RegionController::class, 'store'], [AuthMiddleware::class, AdminOnlyMiddleware::class, CsrfMiddleware::class]);
+$router->post('/admin/regions/delete', [RegionController::class, 'delete'], [AuthMiddleware::class, AdminOnlyMiddleware::class, CsrfMiddleware::class]);
