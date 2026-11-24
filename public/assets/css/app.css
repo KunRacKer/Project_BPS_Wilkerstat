@@ -1,0 +1,159 @@
+:root {
+    --simap-primary: #0092DC;
+    --simap-success: #67B82E;
+    --simap-warning: #EA881B;
+    --simap-dark: #202A36;
+    --simap-bg-light: #F5F7FA;
+}
+
+body {
+    background-color: var(--bs-body-bg);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Brand badge */
+.brand-badge {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--simap-primary), #0072b3);
+    color: #fff;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(0, 146, 220, .25);
+}
+
+/* Auth */
+.auth-bg {
+    background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(0, 146, 220, .18), transparent 60%),
+        radial-gradient(1000px 500px at 110% 110%, rgba(103, 184, 46, .14), transparent 60%),
+        var(--simap-bg-light);
+}
+[data-bs-theme="dark"] .auth-bg {
+    background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(0, 146, 220, .25), transparent 60%),
+        radial-gradient(1000px 500px at 110% 110%, rgba(103, 184, 46, .18), transparent 60%),
+        #0f151d;
+}
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 1rem;
+}
+
+/* Badge status */
+.status-badge {
+    font-weight: 500;
+    padding: .35em .65em;
+    letter-spacing: .01em;
+}
+
+/* Bootstrap primary override mengikuti palet */
+.btn-primary {
+    --bs-btn-bg: var(--simap-primary);
+    --bs-btn-border-color: var(--simap-primary);
+    --bs-btn-hover-bg: #0079b8;
+    --bs-btn-hover-border-color: #006fa8;
+    --bs-btn-active-bg: #006fa8;
+    --bs-btn-active-border-color: #006a9f;
+}
+.text-bg-primary { background-color: var(--simap-primary) !important; }
+
+/* Smooth theme */
+html, body { transition: background-color .2s ease, color .2s ease; }
+
+/* App Layout */
+.app-main {
+    min-height: calc(100vh - 60px);
+    background-color: var(--bs-body-bg);
+}
+
+/* Topbar */
+.topbar-app {
+    min-height: 60px;
+}
+.brand-badge {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--simap-primary), #0072b3);
+    color: #fff;
+    font-size: 1rem;
+}
+
+/* Dashboard Cards */
+.card-dashboard {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-dashboard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.08)!important;
+}
+.icon-box {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+/* Notif Dropdown */
+.notif-dropdown {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Tabel Custom */
+.table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    color: #6c757d;
+}
+.table td {
+    vertical-align: middle;
+}
+
+/* Form Custom */
+.form-control:focus, .form-select:focus {
+    border-color: var(--simap-primary);
+    box-shadow: 0 0 0 0.25rem rgba(0, 146, 220, 0.15);
+}
+.form-label {
+    margin-bottom: 0.3rem;
+}
+
+/* Pagination Custom */
+.pagination .page-link {
+    color: var(--simap-primary);
+    border-color: #dee2e6;
+}
+.pagination .page-item.active .page-link {
+    background-color: var(--simap-primary);
+    border-color: var(--simap-primary);
+    color: #fff;
+}
+.pagination .page-link:hover {
+    background-color: #f8f9fa;
+    color: #0072b3;
+}
+
+/* Dropdown item hover */
+.dropdown-item:active {
+    background-color: var(--simap-primary);
+}
+
+/* Memastikan container tabel tidak memotong dropdown */
+.table-responsive {
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    min-height: 250px; /* Memberi ruang agar dropdown tidak keluar layar */
+}
