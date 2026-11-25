@@ -176,3 +176,10 @@ html, body { transition: background-color .2s ease, color .2s ease; }
 .breadcrumb-item.active a {
     color: var(--bs-body-color);
 }
+
+/* Spinner kecil untuk tabel */
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+    border-width: 0.15em;
+}

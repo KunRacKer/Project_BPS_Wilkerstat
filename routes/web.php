@@ -9,6 +9,9 @@ use App\Middleware\CsrfMiddleware;
 use App\Middleware\KetuaTimOnlyMiddleware;
 use App\Controllers\UserController;
 use App\Controllers\RegionController;
+use App\Controllers\RequestController;
+use App\Controllers\VerificationController;
+use App\Controllers\DownloadController;
 
 /** @var \App\Support\Router $router */
 
@@ -52,3 +55,18 @@ $router->post('/admin/users/{id}/reset-password', [UserController::class, 'reset
 $router->get('/admin/regions', [RegionController::class, 'index'], [AuthMiddleware::class, AdminOnlyMiddleware::class]);
 $router->post('/admin/regions', [RegionController::class, 'store'], [AuthMiddleware::class, AdminOnlyMiddleware::class, CsrfMiddleware::class]);
 $router->post('/admin/regions/delete', [RegionController::class, 'delete'], [AuthMiddleware::class, AdminOnlyMiddleware::class, CsrfMiddleware::class]);
+
+// === KETUA TIM ===
+$router->get('/app/requests', [RequestController::class, 'index'], [AuthMiddleware::class, KetuaTimOnlyMiddleware::class]);
+$router->get('/app/requests/create', [RequestController::class, 'create'], [AuthMiddleware::class, KetuaTimOnlyMiddleware::class]);
+$router->post('/app/requests', [RequestController::class, 'store'], [AuthMiddleware::class, KetuaTimOnlyMiddleware::class, CsrfMiddleware::class]);
+$router->get('/app/requests/{id}', [RequestController::class, 'show'], [AuthMiddleware::class, KetuaTimOnlyMiddleware::class]);
+
+// === SUPER ADMIN ===
+$router->get('/admin/verifications', [VerificationController::class, 'index'], [AuthMiddleware::class, AdminOnlyMiddleware::class]);
+$router->get('/admin/verifications/{id}', [VerificationController::class, 'show'], [AuthMiddleware::class, AdminOnlyMiddleware::class]);
+$router->post('/admin/verifications/{id}', [VerificationController::class, 'process'], [AuthMiddleware::class, AdminOnlyMiddleware::class, CsrfMiddleware::class]);
+
+$router->get('/app/requests/{id}/downloads', [DownloadController::class, 'index'], [AuthMiddleware::class, KetuaTimOnlyMiddleware::class]);
+$router->post('/app/requests/{id}/downloads', [DownloadController::class, 'store'], [AuthMiddleware::class, KetuaTimOnlyMiddleware::class, CsrfMiddleware::class]);
+$router->get('/app/downloads/{id}/status', [DownloadController::class, 'status'], [AuthMiddleware::class, KetuaTimOnlyMiddleware::class]);

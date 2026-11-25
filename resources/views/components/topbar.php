@@ -37,6 +37,22 @@ $dashboardUrl = ($user['role'] ?? '') === 'super_admin' ? 'admin/dashboard' : 'a
         </a>
     </li>
     <?php endif; ?>
+    <!-- Di dalam <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
+    <?php if (($user['role'] ?? '') === 'ketua_tim'): ?>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= e(base_url('app/requests')) ?>">
+            <i class="bi bi-file-earmark-text me-1"></i> Permintaan
+        </a>
+    </li>
+    <?php endif; ?>
+
+    <?php if (($user['role'] ?? '') === 'super_admin'): ?>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= e(base_url('admin/verifications')) ?>">
+            <i class="bi bi-check2-square me-1"></i> Verifikasi
+        </a>
+    </li>
+    <?php endif; ?>
 </ul>
 
             <!-- Menu Kanan: Notifikasi & User -->
